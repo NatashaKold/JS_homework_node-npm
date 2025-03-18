@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <script src="index.js"></script>
+    <h1>Кого будем искать?</h1>
+    <div class="search-container">
+        <select name="categories" class="inputField" id="categoriesSelecet">
+            <option value="planets">Планеты</option>
+            <option value="spaceships">Космические корабли</option>
+            <option value="people">Персонажи</option>
+        </select>
+        <input type="number" min="1" max="10" class="inputField">
+        <button id="searchBtn" class="searchBtn">Искать</button>
+    </div>
+    <div class="resultContainer"></div>
+        <script src="index.js"></script>
 </body>
 </html>
