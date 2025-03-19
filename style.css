@@ -8,7 +8,7 @@ body{
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    gap: 10px;
+    gap: 20px;
 }
 
 .inputField{
@@ -23,4 +23,9 @@ body{
     border-radius: 10px;
     border: none;
     outline: none;
+}
+
+.resultContainer{
+    display:flex;
+    margin: 20px 0;
 }
