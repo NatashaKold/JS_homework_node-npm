@@ -1,24 +1,26 @@
 const button = document.getElementById('searchBtn');
-let result = document.querySelector(".resultContainer");
+let result = document.getElementById('response');
+let errorMessage = document.getElementById('errorMessage');
 let index = document.getElementById('indexInput').value;
 const category = document.getElementById('categoriesSelect').value;
 
+
 async function getItem(){
-    result.innerHTML = ``;
+    result.textContent = '';
+    errorMessage.textContent='';
 
 if(category==='planets'){
 try{
-await fetch (`https://swapi.py4e.com/api/planets/${index}`)
+ await fetch (`https://swapi.py4e.com/api/planets/${index}`)
 .then(response => response.json())
 .then((data)=>{
-result.innerHTML = `<div style='font-size: 30px'>Планета: </div>
-                    <div style='font-size: 30px'>${JSON.stringify(data.name)}</div>`;
+result.textContent = `Планета: ${JSON.stringify(data.name)}`;
 })
 } catch(error){
     console.log(error);
-    result.innerHTML=`<div style='font-size: 30px'> Произошла ошибка: ${error.message} 🙁 </div>`;
+    errorMessage.textContent= `Произошла ошибка: ${error.message} 🙁`;
 } finally{
-    result.innerHTML += `<div>StarWars - лучшая сага в мире кино!</div>`;
+    document.querySelector('resultContainer').textContent = `StarWars - лучшая сага в мире кино!`;
 }
 }
 
@@ -27,15 +29,14 @@ try{
     await fetch (`https://swapi.py4e.com/api/starships/${index}`)
     .then(response => response.json())
     .then((data)=>{
-    result.innerHTML = `<div style='font-size: 30px'>Космический корабль: </div>
-                        <div style='font-size: 30px'>${JSON.stringify(data.name)}</div>`;
+    result.textContent = `Космический корабль: ${JSON.stringify(data.name)}`;
     })
 }
 catch(error){
     console.log(error);
-        result.innerHTML=`<div style='font-size: 30px'> Произошла ошибка: ${error.message} 🙁 </div>`;
+        errorMessage.textContent=` Произошла ошибка: ${error.message} 🙁`;
     } finally{
-        result.innerHTML += result.innerHTML += `<div>StarWars - лучшая сага в мире кино!</div>`;
+        document.querySelector('resultContainer').textContent = `StarWars - лучшая сага в мире кино!`;
     }
 }
 
@@ -45,14 +46,13 @@ catch(error){
     await fetch (`https://swapi.py4e.com/api/people/${index}`)
     .then(response => response.json())
     .then((data)=>{
-    result.innerHTML = `<div style='font-size: 30px'>Персонаж: </div>
-                        <div style='font-size: 30px'>${JSON.stringify(data.name)}</div>`;
+    result.textContent = `Персонаж: ${JSON.stringify(data.name)}`;
     })
     } catch(error){
         console.log(error);
-        result.innerHTML=`<div style='font-size: 30px'> Произошла ошибка: ${error.message} 🙁 </div>`;
+        errorMessage.textContent=`Произошла ошибка: ${error.message} 🙁`;
     }finally{
-        result.innerHTML += result.innerHTML += `<div>StarWars - лучшая сага в мире кино!</div>`;
+        document.querySelector('resultContainer').textContent = `StarWars - лучшая сага в мире кино!`;
     }
 }
         
